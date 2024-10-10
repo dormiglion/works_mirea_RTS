@@ -23,17 +23,17 @@ public class Cards {
         for(int j = 1; j < 5; ++j){
             for(int i = 2; i < 15; ++i){
                 if (i < 11) {
-                  cards.add(i + " " + suits.get(j));
+                  this.cards.add(i + " " + suits.get(j));
                 }
                 else {
-                    cards.add(values.get(i) + " " + suits.get(j));
+                    this.cards.add(values.get(i) + " " + suits.get(j));
                 }
             }
             c += 1;
         }
     }
     public void Shuffle(){
-        Collections.shuffle(cards);
+        Collections.shuffle(this.cards);
     }
-    public List<String> getCards() {return cards;}
+    public List<String> getCards() {return this.cards;}
 }

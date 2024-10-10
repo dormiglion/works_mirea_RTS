@@ -13,6 +13,7 @@ public class work1_1 {
             nums[i] = scan.nextInt();
             sum += nums[i];
         }
+        scan.close();
         float avg = (float)sum / n;
         System.out.println("Сумма всех чисел в массиве: " + sum);
         System.out.println("Среднее арифметическое всех чисел в массиве: " + avg);
