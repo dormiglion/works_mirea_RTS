@@ -1,4 +1,5 @@
 package ru.mirea.work8;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class task7 {
@@ -6,13 +7,24 @@ public class task7 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите натуральное число n (n > 1): ");
-        int n = scanner.nextInt();
+        int n;
+        try {
+            n = scanner.nextInt();
+        } catch (InputMismatchException err) {
+            System.out.println("Ошибка, введено не число!");
+            return;
+        }
+        if (n < 1) {
+            System.out.println("Число должно быть натуральным.");
+            return;
+        }
         System.out.println("Простые множители числа " + n + ":");
         printPrimeFactors(n);
         scanner.close();
     }
 
     public static void printPrimeFactors(int n) {
+        System.out.print("1 ");
         while (n % 2 == 0) {
             System.out.print(2 + " ");
             n /= 2;

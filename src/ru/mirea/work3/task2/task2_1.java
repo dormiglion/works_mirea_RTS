@@ -7,7 +7,6 @@ public class task2_1 {
         String str = "1.634";
         double parsedDouble = Double.parseDouble(str);
 
-
         double d = n.doubleValue();
         System.out.println("double: " + d);
 

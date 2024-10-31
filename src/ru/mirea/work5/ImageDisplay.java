@@ -23,6 +23,7 @@ public class ImageDisplay extends JFrame{
 
     public static void main(String[] args) {
         if (args.length != 1) {
+            System.out.println(args.length);
             System.out.println("Usage: java ImageDisplay <path_to_image>");
             System.exit(1);
         }

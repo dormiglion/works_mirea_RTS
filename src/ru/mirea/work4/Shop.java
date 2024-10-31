@@ -1,5 +1,12 @@
 package ru.mirea.work4;
-import java.util.*;
+//import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Arrays;
+
 
 public class Shop {
     private static Map<String, String> users = new HashMap<>();

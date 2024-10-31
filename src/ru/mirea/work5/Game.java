@@ -19,7 +19,7 @@ public class Game extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1));
+        panel.setLayout(new GridLayout(3, 2));
 
         // Кнопки для команд
         JButton milanButton = new JButton("AC Milan");

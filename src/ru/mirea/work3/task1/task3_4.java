@@ -12,7 +12,7 @@ public class task3_4 {
             System.out.print("Введите размер массива (натуральное число больше 1): ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Ошибка: необходимо ввести натуральное число больше 1.");
-                scanner.next(); // очищаем некорректный ввод
+                scanner.next();
             }
             n = scanner.nextInt();
         } while (n <= 1);

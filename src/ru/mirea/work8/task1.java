@@ -6,6 +6,7 @@ public class task1 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите число n: ");
         int n = scanner.nextInt();
+
         printTriangleSequence(n);
         scanner.close();
     }
