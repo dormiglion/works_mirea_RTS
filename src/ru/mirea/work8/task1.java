@@ -4,8 +4,16 @@ import java.util.Scanner;
 public class task1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите число n: ");
-        int n = scanner.nextInt();
+
+        int n = 0;
+        do {
+            System.out.print("Введите натуральное число n (n > 1): ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка: необходимо ввести натуральное число больше 1.");
+                scanner.next();
+            }
+            n = scanner.nextInt();
+        } while (n <= 1);
 
         printTriangleSequence(n);
         scanner.close();

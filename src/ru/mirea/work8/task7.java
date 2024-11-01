@@ -6,18 +6,16 @@ public class task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите натуральное число n (n > 1): ");
-        int n;
-        try {
+        int n = 0;
+        do {
+            System.out.print("Введите натуральное число n (n > 1): ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка: необходимо ввести натуральное число больше 1.");
+                scanner.next();
+            }
             n = scanner.nextInt();
-        } catch (InputMismatchException err) {
-            System.out.println("Ошибка, введено не число!");
-            return;
-        }
-        if (n < 1) {
-            System.out.println("Число должно быть натуральным.");
-            return;
-        }
+        } while (n <= 1);
+
         System.out.println("Простые множители числа " + n + ":");
         printPrimeFactors(n);
         scanner.close();

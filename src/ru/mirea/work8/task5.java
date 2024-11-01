@@ -5,10 +5,18 @@ public class task5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите натуральное число N: ");
-        int N = scanner.nextInt();
-        int result = sumDigits(N);
-        System.out.println("Сумма цифр числа " + N + " равна: " + result);
+        int n = 0;
+        do {
+            System.out.print("Введите натуральное число n (n > 1): ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка: необходимо ввести натуральное число больше 1.");
+                scanner.next();
+            }
+            n = scanner.nextInt();
+        } while (n <= 1);
+
+        int result = sumDigits(n);
+        System.out.println("Сумма цифр числа " + n + " равна: " + result);
 
         scanner.close();
     }

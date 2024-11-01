@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class task8 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите слово: ");
+        System.out.print("Введите набор символов: ");
         String word = scanner.nextLine();
 
         if (isPalindrome(word, 0, word.length() - 1)) {

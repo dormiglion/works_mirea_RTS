@@ -16,7 +16,7 @@ public class SortingStudentsByGPA {
                     "Student" + (i + 1),
                     "LastName" + (i + 1),
                     "Major" + (rand.nextInt(3) + 1),
-                    2 + rand.nextDouble() * 2 // Генерация GPA от 2.0 до 4.0
+                    2 + (rand.nextDouble() * 2)
             );
         }
     }
@@ -95,6 +95,17 @@ public class SortingStudentsByGPA {
 
         students = merged;
     }
+
+    // 4 пункт, добавим возможность сортировки по другим признакам используя comparator
+    public static final Comparator<Student> BY_NAME = Comparator.comparing(Student::getName);
+    public static final Comparator<Student> BY_LAST_NAME = Comparator.comparing(Student::getLastName);
+    public static final Comparator<Student> BY_MAJOR = Comparator.comparing(Student::getMajor);
+
+    public void sortByField(Comparator<Student> comparator) {
+        quickSort(students, comparator, 0, students.length - 1);
+    }
+
+
     public void outArray() {
         for (Student student : students) {
             System.out.println(student);
@@ -103,7 +114,7 @@ public class SortingStudentsByGPA {
 
     public static void main(String[] args) {
         SortingStudentsByGPA sorter = new SortingStudentsByGPA();
-        sorter.setArray(10);
+        sorter.setArray(9);
 
         System.out.println("Студенты до сортировки:");
         sorter.outArray();
@@ -114,6 +125,18 @@ public class SortingStudentsByGPA {
 
         sorter.mergeSort(Comparator.comparingDouble(Student::getGpa).reversed());
         System.out.println("\nСтуденты после сортировки слиянием по GPA:");
+        sorter.outArray();
+
+        sorter.sortByField(SortingStudentsByGPA.BY_NAME);
+        System.out.println("\nСтуденты после сортировки по имени:");
+        sorter.outArray();
+
+        sorter.sortByField(SortingStudentsByGPA.BY_LAST_NAME);
+        System.out.println("\nСтуденты после сортировки по фамилии:");
+        sorter.outArray();
+
+        sorter.sortByField(SortingStudentsByGPA.BY_MAJOR);
+        System.out.println("\nСтуденты после сортировки по специальности:");
         sorter.outArray();
     }
 }

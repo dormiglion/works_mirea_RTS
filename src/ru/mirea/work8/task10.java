@@ -4,8 +4,15 @@ import java.util.Scanner;
 public class task10 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите число (без нулей): ");
-        int n = scanner.nextInt();
+        int n;
+        do {
+            System.out.print("Введите натуральное число n (n > 1): ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Ошибка: необходимо ввести натуральное число больше 1.");
+                scanner.next();
+            }
+            n = scanner.nextInt();
+        } while (n <= 1);
         int reversed = reverse(n);
         System.out.println("Разворот числа: " + reversed);
         scanner.close();

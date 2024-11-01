@@ -17,6 +17,18 @@ public class Student {
         return gpa;
     }
 
+    public String getName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
     @Override
     public String toString() {
         return firstName + " " + lastName + " (" + major + ", GPA: " + gpa + ")";

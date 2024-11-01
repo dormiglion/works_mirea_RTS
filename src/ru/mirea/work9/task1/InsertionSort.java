@@ -1,4 +1,6 @@
 package ru.mirea.work9.task1;
+import javax.swing.*;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class InsertionSort {
@@ -14,7 +16,46 @@ public class InsertionSort {
             students[j + 1] = key;
         }
     }
+
+    public static void shakerSort(Student[] students) {
+        boolean swapped;
+        int start = 0;
+        int end = students.length - 1;
+
+        do {
+            swapped = false;
+
+            // Проход слева направо
+            for (int i = start; i < end; i++) {
+                if (students[i].compareTo(students[i + 1]) > 0) {  // Используем compareTo() для сравнения
+                    Student temp = students[i];
+                    students[i] = students[i + 1];
+                    students[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // Сдвигаем конец на одну позицию назад
+            end--;
+
+            // Проход справа налево
+            for (int i = end; i > start; i--) {
+                if (students[i].compareTo(students[i - 1]) < 0) {  // Используем compareTo() для сравнения
+                    Student temp = students[i];
+                    students[i] = students[i - 1];
+                    students[i - 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // Сдвигаем начало на одну позицию вперед
+            start++;
+        } while (swapped);
+    }
+
+
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         Scanner scanner = new Scanner(System.in);
 
         Student[] students = new Student[5];
@@ -30,5 +71,9 @@ public class InsertionSort {
             System.out.println(student);
         }
         scanner.close();
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration);
     }
 }
