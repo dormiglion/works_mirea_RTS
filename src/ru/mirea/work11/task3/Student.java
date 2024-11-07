@@ -1,8 +1,8 @@
 package ru.mirea.work11.task3;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Student {
     private String name;
@@ -13,22 +13,43 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public String getFormattedBirthDate(int dateFormatStyle) {
+    public String getFormat(String formatType) {
+        int dateFormatStyle;
+
+        switch (formatType.toLowerCase()) {
+            case "short":
+                dateFormatStyle = DateFormat.SHORT;
+                break;
+            case "medium":
+                dateFormatStyle = DateFormat.MEDIUM;
+                break;
+            case "long":
+                dateFormatStyle = DateFormat.LONG;
+                break;
+            default:
+                System.out.println("Тип формата неизвестен. Используется формат по умолчанию (medium).");
+                dateFormatStyle = DateFormat.MEDIUM;
+        }
         DateFormat dateFormat = DateFormat.getDateInstance(dateFormatStyle);
         return dateFormat.format(birthDate);
     }
 
     @Override
     public String toString() {
-        return "Student{name='" + name + "', birthDate=" + getFormattedBirthDate(DateFormat.MEDIUM) + '}';
+        return "Студент: '" + name + "', дата рождения: " + getFormat("medium") + '}';
     }
 
     public static void main(String[] args) {
-        Date birthDate = new Date(90, 6, 15); // Пример даты рождения
-        Student student = new Student("John Doe", birthDate);
-        System.out.println("Short format: " + student.getFormattedBirthDate(DateFormat.SHORT));
-        System.out.println("Medium format: " + student.getFormattedBirthDate(DateFormat.MEDIUM));
-        System.out.println("Long format: " + student.getFormattedBirthDate(DateFormat.LONG));
+        Date birthDate = new Date(105, 7, 21); // Пример даты рождения
+        Student student = new Student("Софья", birthDate);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите формат вывода даты (short, medium, long): ");
+        String formatType = scanner.nextLine();
+
+        // Вывод даты рождения в выбранном формате
+        System.out.println("Дата рождения в выбранном формате: " + student.getFormat(formatType));
+        System.out.println(student);
+        scanner.close();
     }
 
 }

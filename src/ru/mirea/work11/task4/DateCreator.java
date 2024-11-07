@@ -7,25 +7,25 @@ public class DateCreator {
     public static void createDateFromInput() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter year: ");
+        System.out.print("Введите год: ");
         int year = scanner.nextInt();
 
-        System.out.print("Enter month (1-12): ");
+        System.out.print("Введите месяц (1-12): ");
         int month = scanner.nextInt() - 1; // В Calendar январь - это 0
 
-        System.out.print("Enter day: ");
+        System.out.print("Введите день: ");
         int day = scanner.nextInt();
 
-        System.out.print("Enter hour: ");
+        System.out.print("Введите час: ");
         int hour = scanner.nextInt();
 
-        System.out.print("Enter minute: ");
+        System.out.print("Введите минуту: ");
         int minute = scanner.nextInt();
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day, hour, minute);
 
-        System.out.println("Created date: " + calendar.getTime());
+        System.out.println("Ваша дата: " + calendar.getTime());
     }
 
     public static void main(String[] args) {
