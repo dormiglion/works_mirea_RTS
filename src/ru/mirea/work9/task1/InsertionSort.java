@@ -1,6 +1,4 @@
 package ru.mirea.work9.task1;
-import javax.swing.*;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class InsertionSort {
@@ -25,7 +23,6 @@ public class InsertionSort {
         do {
             swapped = false;
 
-            // Проход слева направо
             for (int i = start; i < end; i++) {
                 if (students[i].compareTo(students[i + 1]) > 0) {  // Используем compareTo() для сравнения
                     Student temp = students[i];
@@ -35,10 +32,8 @@ public class InsertionSort {
                 }
             }
 
-            // Сдвигаем конец на одну позицию назад
             end--;
 
-            // Проход справа налево
             for (int i = end; i > start; i--) {
                 if (students[i].compareTo(students[i - 1]) < 0) {  // Используем compareTo() для сравнения
                     Student temp = students[i];
@@ -48,7 +43,6 @@ public class InsertionSort {
                 }
             }
 
-            // Сдвигаем начало на одну позицию вперед
             start++;
         } while (swapped);
     }

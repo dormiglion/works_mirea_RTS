@@ -25,7 +25,8 @@ public class MenuExample extends JFrame{
         helloItem.addActionListener(e -> {
             String name = JOptionPane.showInputDialog("Введите ваше имя:");
             if (name != null && !name.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Привет, " + name + "! Хорошего тебе дня!");
+                JOptionPane.showMessageDialog(null, "Привет, "
+                        + name + "! Хорошего тебе дня!");
             }
         });
         helloMenu.add(helloItem);
@@ -44,8 +45,8 @@ public class MenuExample extends JFrame{
         JMenuItem imageItem = new JMenuItem("Показать изображение");
         imageItem.addActionListener(e -> {
             try {
-                BufferedImage image = ImageIO.read(new File("D:\\works_mirea_RTS" +
-                        "\\works_mirea_RTS\\src\\ru\\mirea\\work12\\image.jpg")); // Замените "image.jpg" на путь к вашему файлу
+                BufferedImage image = ImageIO.read(new File("C:\\Users" +
+                        "\\dormiglion\\IdeaProjects\\works_mirea_RTS\\src\\ru\\mirea\\work12\\image.jpg"));
                 Graphics g = drawPanel.getGraphics();
                 g.clearRect(0, 0, drawPanel.getWidth(), drawPanel.getHeight());
                 g.drawImage(image, 0, 0, drawPanel.getWidth(), drawPanel.getHeight(), null);
@@ -55,7 +56,7 @@ public class MenuExample extends JFrame{
         });
         imageMenu.add(imageItem);
 
-        // Добавление всех меню в строку меню
+
         menuBar.add(helloMenu);
         menuBar.add(shapeMenu);
         menuBar.add(imageMenu);

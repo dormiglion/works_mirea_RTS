@@ -46,7 +46,6 @@ public class Student {
         System.out.println("Выберите формат вывода даты (short, medium, long): ");
         String formatType = scanner.nextLine();
 
-        // Вывод даты рождения в выбранном формате
         System.out.println("Дата рождения в выбранном формате: " + student.getFormat(formatType));
         System.out.println(student);
         scanner.close();

@@ -96,7 +96,7 @@ public class SortingStudentsByGPA {
         students = merged;
     }
 
-    // 4 пункт, добавим возможность сортировки по другим признакам используя comparator
+    // 4 пункт, comparator
     public static final Comparator<Student> BY_NAME = Comparator.comparing(Student::getName);
     public static final Comparator<Student> BY_LAST_NAME = Comparator.comparing(Student::getLastName);
     public static final Comparator<Student> BY_MAJOR = Comparator.comparing(Student::getMajor);

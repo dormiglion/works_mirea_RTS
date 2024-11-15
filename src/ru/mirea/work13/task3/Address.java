@@ -11,15 +11,12 @@ public class Address {
     private String building;
     private String apartment;
 
-    // Конструктор для инициализации через метод split()
+    // split
     public void parseAddressWithComma(String address) {
-        // Разделяем строку по запятой и удаляем пробелы по краям
         String[] parts = address.split(",");
         if (parts.length != 7) {
             throw new IllegalArgumentException("Некорректный формат адреса.");
         }
-
-        // Заполняем поля, обрезая пробелы у каждой части
         country = parts[0].trim();
         region = parts[1].trim();
         city = parts[2].trim();
@@ -29,16 +26,13 @@ public class Address {
         apartment = parts[6].trim();
     }
 
-    // Конструктор для инициализации через StringTokenizer
+    // StringTokenizer
     public void parseAddressWithDelimiters(String address) {
-        // Используем StringTokenizer с разделителями , . ;
         StringTokenizer tokenizer = new StringTokenizer(address, ",.;");
 
         if (tokenizer.countTokens() != 7) {
             throw new IllegalArgumentException("Некорректный формат адреса.");
         }
-
-        // Заполняем поля, обрезая пробелы у каждой части
         country = tokenizer.nextToken().trim();
         region = tokenizer.nextToken().trim();
         city = tokenizer.nextToken().trim();
@@ -48,7 +42,6 @@ public class Address {
         apartment = tokenizer.nextToken().trim();
     }
 
-    // Метод для вывода адреса
     @Override
     public String toString() {
         return "Address{" +
@@ -69,15 +62,14 @@ public class Address {
         Address address3 = new Address();
         Address address4 = new Address();
 
-        // Тест с запятой как разделителем
+        //с запятой
         address1.parseAddressWithComma("Россия, Московская область, Москва, Тверская улица, 15, корпус 1, квартира 10");
         System.out.println("Результат parseAddressWithComma: " + address1);
 
-        // Тест с любым из разделителей
+        //с любым из разделителей
         address2.parseAddressWithDelimiters("Россия. Московская область; Москва, Тверская улица, 15; корпус 1. квартира 10");
         System.out.println("Результат parseAddressWithDelimiters: " + address2);
 
-        // Другие примеры
         address3.parseAddressWithComma("США, Калифорния, Лос-Анджелес, Голливудский бульвар, 123, корпус B, квартира 45");
         System.out.println("Результат parseAddressWithComma: " + address3);
 
