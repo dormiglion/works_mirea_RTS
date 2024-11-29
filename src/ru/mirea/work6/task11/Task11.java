@@ -7,8 +7,8 @@ public class Task11 {
 
         System.out.print("Введите температуру в градусах Цельсия: ");
         double celsius = scanner.nextDouble();
-        Convertable kelvinConverter = new CelToKel();
-        Convertable fahrenheitConverter = new CelToFahr();
+        Convertible kelvinConverter = new CelToKel();
+        Convertible fahrenheitConverter = new CelToFahr();
 
         double kelvin = kelvinConverter.convert(celsius);
         double fahrenheit = fahrenheitConverter.convert(celsius);
