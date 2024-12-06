@@ -40,7 +40,7 @@ public class Task7 {
             return "data for " + key;
         } catch (Exception e) {
             System.out.println("Caught Exception: " + e.getMessage());
-            // Теперь метод getDetails возвращает null, чтобы показать ошибку,
+            // null
             return null;
         }
     }
