@@ -1,4 +1,4 @@
-package ru.mirea.work15;
+package ru.mirea.work22.calc;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,22 +21,28 @@ public class CalculatorFrame extends JFrame {
         display = new JTextArea(2, 20);
         display.setEditable(false);
         display.setFont(new Font("Arial", Font.BOLD, 24));
+        display.setBackground(Color.darkGray);
+        display.setForeground(Color.WHITE);
         add(display, BorderLayout.NORTH);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(4, 4, 10, 10));
+        buttonPanel.setLayout(new GridLayout(5, 4, 10, 10));
+        buttonPanel.setBackground(Color.darkGray);
         add(buttonPanel, BorderLayout.CENTER);
 
         String[] buttons = {
                 "7", "8", "9", "/",
                 "4", "5", "6", "*",
                 "1", "2", "3", "-",
-                "0", ".", "=", "+"
+                "0", ".", "=", "+",
+                "<--"
         };
 
         for (String text : buttons) {
             JButton button = new JButton(text);
             button.setFont(new Font("Arial", Font.BOLD, 18));
+            button.setBackground(Color.pink);
+            button.setForeground(Color.white);
             button.addActionListener(new ButtonClickListener());
             buttonPanel.add(button);
         }
@@ -72,8 +78,19 @@ public class CalculatorFrame extends JFrame {
                     double secondOperand = Double.parseDouble(currentInput);
                     double result = calculate(firstOperand, secondOperand, operator);
                     display.setText(String.valueOf(result));
+                    if (result == Double.MIN_VALUE) {
+                        // Если деление на 0, выводим сообщение об ошибке
+                        display.setText("DIVISION BY ZERO");
+                    } else {
+                        display.setText(String.valueOf(result));
+                    }
                     currentInput = "";
                     operator = "";
+                }
+            } else if ("<--".equals(command)) {
+                if (!currentInput.isEmpty()) {
+                    currentInput = currentInput.substring(0, currentInput.length() - 1);
+                    display.setText(currentInput);
                 }
             }
         }
@@ -87,11 +104,11 @@ public class CalculatorFrame extends JFrame {
                 case "*":
                     return a * b;
                 case "/":
-                    if (b != 0) return a / b;
-                    else {
-                        display.setText("Error: Div by 0");
+                    if (b == 0){
+                        display.setText("DIVISION BY ZERO");
                         return 0;
                     }
+                    return a / b;
                 default:
                     return 0;
             }

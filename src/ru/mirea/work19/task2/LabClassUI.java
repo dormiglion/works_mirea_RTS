@@ -49,7 +49,7 @@ public class LabClassUI {
                         System.out.println("Ошибка: введите число от 1 до 4.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Ошибка: введите число от 1 до 4." + e.getMessage());
+                System.out.println("Ошибка: " + e.getMessage());
                 scanner.nextLine();
             }
         }
