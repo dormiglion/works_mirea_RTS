@@ -36,7 +36,7 @@ public class GuessNumberGame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int guess = Integer.parseInt(guessField.getText());
+                    int guess = Integer.parseInt(guessField.getText().trim());
 
                     // 0-20
                     if (guess < 0 || guess > 20) {

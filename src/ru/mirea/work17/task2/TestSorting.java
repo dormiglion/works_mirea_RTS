@@ -2,9 +2,8 @@ package ru.mirea.work17.task2;
 
 public class TestSorting {
     public static void main(String[] args) {
-        DoublyLinkedList<Double> list = new DoublyLinkedList<>();
+        DoublyLinkedList list = new DoublyLinkedList();
 
-        // Добавление элементов
         list.add(6.4);
         list.add(2.5);
         list.add(9.0);

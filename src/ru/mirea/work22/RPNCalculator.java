@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class RPNCalculator {
     static  Stack<Double> stack = new Stack<>();
-    static Scanner sc = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     static String next;
     static Double firstOp, secondOp;
 
@@ -16,8 +16,8 @@ public class RPNCalculator {
     public static void main(String[] args) {
         System.out.println("Введите арифметическое выражение в обратной польской нотации\n" +
                 "А затем нажмите Ctrl+D для завершения ввода");
-        while (sc.hasNext()){
-            next = sc.next();
+        while (scanner.hasNext()){
+            next = scanner.next();
             if(isNumeric(next)){
                 stack.add(Double.parseDouble(next));
             } else {

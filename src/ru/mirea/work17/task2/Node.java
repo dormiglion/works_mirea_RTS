@@ -1,43 +1,43 @@
 package ru.mirea.work17.task2;
 
-public class Node<T extends Comparable<T>> {
-    private T data;
-    private Node<T> prev = null;
-    private  Node<T> next = null;
-    public Node(T dataValue){
+public class Node{
+    private Double data;
+    private Node prev = null;
+    private  Node next = null;
+    public Node(Double dataValue){
         this.data = dataValue;
     }
 
-    public Node(T dataValue, Node<T> next){
+    public Node(Double dataValue, Node next){
         this.next = next;
         this.data = dataValue;
     }
 
-    public T getData(){
+    public Double getData(){
         return data;
     }
 
-    public void setData(T dataValue){
+    public void setData(Double dataValue){
         this.data = dataValue;
     }
 
-    public Node<T> getNext() {
+    public Node getNext() {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void setNext(Node next) {
         this.next = next;
     }
 
-    public Node<T> getPrev() {
+    public Node getPrev() {
         return prev;
     }
 
-    public void setPrev(Node<T> prev) {
+    public void setPrev(Node prev) {
         this.prev = prev;
     }
 
-    public int compareTo(Node<T> other){
+    public int compareTo(Node other){
         return data.compareTo(other.data);
     }
 
