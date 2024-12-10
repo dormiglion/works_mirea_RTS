@@ -72,6 +72,11 @@ public class CalculatorFrame extends JFrame {
                     double secondOperand = Double.parseDouble(currentInput);
                     double result = calculate(firstOperand, secondOperand, operator);
                     display.setText(String.valueOf(result));
+                    if (result == Double.MAX_VALUE) { // div 0
+                        display.setText("DIVISION BY ZERO");
+                    } else {
+                        display.setText(String.valueOf(result));
+                    }
                     currentInput = "";
                     operator = "";
                 }
@@ -89,8 +94,8 @@ public class CalculatorFrame extends JFrame {
                 case "/":
                     if (b != 0) return a / b;
                     else {
-                        display.setText("Error: Div by 0");
-                        return 0;
+                        display.setText("DIVISION BY ZERO");
+                        return Double.MAX_VALUE;
                     }
                 default:
                     return 0;

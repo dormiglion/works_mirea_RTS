@@ -11,7 +11,7 @@ public class LabClassDriver {
         Student student4 = new Student("Artur", 3.2);
         Student student5 = new Student("Sonya", 4.9);
         Student student6 = new Student("Ann", 2.5);
-        Student student7 = new Student("Ann", 4.1);
+        Student student7 = new Student("Hay", 4.1);
         ArrayList<Student> students = new ArrayList<>(
                 List.of(new Student[]{
                         student1,

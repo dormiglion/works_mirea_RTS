@@ -1,11 +1,11 @@
 package ru.mirea.work17.task2;
 
-public class DoublyLinkedList<T extends Comparable<T>> {
-    Node<T> head = null;
-    Node<T> tail = null;
+public class DoublyLinkedList {
+    Node head = null;
+    Node tail = null;
 
-    public void add(T data) {
-        Node<T> node = new Node<>(data);
+    public void add(Double data) {
+        Node node = new Node(data);
         if (head == null) {
             head = node;
         } else {
@@ -19,10 +19,10 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         if (head == null || head == tail) {
             return;
         }
-        Node<T> cur = head;
-        Node<T> prevMin = null;
+        Node cur = head;
+        Node prevMin = null;
         while (cur != null) {
-            Node<T> minNode = findMinNode(cur);
+            Node minNode = findMinNode(cur);
             if (minNode != cur) {
                 removeNode(minNode);
                 insert(minNode, prevMin);
@@ -32,9 +32,9 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         }
     }
 
-    private Node<T> findMinNode(Node<T> start) {
-        Node<T> minNode = start;
-        Node<T> curNode = start;
+    private Node findMinNode(Node start) {
+        Node minNode = start;
+        Node curNode = start;
         while (curNode != null) {
             if (curNode.compareTo(minNode) < 0) {
                 minNode = curNode;
@@ -44,7 +44,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         return minNode;
     }
 
-    private void removeNode(Node<T> node) {
+    private void removeNode(Node node) {
         if (node.getPrev() != null) {
             node.getPrev().setNext(node.getNext());
         } else {
@@ -58,7 +58,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
         }
     }
 
-    private void insert(Node<T> node, Node<T> start) {
+    private void insert(Node node, Node start) {
         if (start != null){
             node.setNext(start.getNext());
             node.setPrev(start);
@@ -78,7 +78,7 @@ public class DoublyLinkedList<T extends Comparable<T>> {
 
     @Override
     public String toString() {
-        Node<T> current = head;
+        Node current = head;
         StringBuilder out = new StringBuilder("[");
         while (current != null) {
             out.append(current.getData() != null ? current.getData().toString() : "null");
